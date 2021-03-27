@@ -1,13 +1,14 @@
 class Triangle
- 
+  # write code here
+
   attr_reader :length_a, :length_b, :length_c
-​
+
   def initialize(length_a, length_b, length_c)
     @length_a = length_a
     @length_b = length_b
     @length_c = length_c
   end
-​
+
   def kind
     triangle_equality
     if @length_a == @length_b && @length_b == @length_c
@@ -21,19 +22,21 @@ class Triangle
     
     end
   end
-​
+
     def triangle_equality
       
       #sum lengths of any two sides <= third side or any side <= 0, raise TriangleError
       real_triangle = [(@length_a + @length_b > @length_c), (@length_a + @length_c > @length_b), (@length_b + @length_c > @length_a)]
-      if @length_a == 0 || @length_b == 0 || @length_c == 0
+      if real_triangle.include?(false)
         raise TriangleError
       end
+      # if real_trianlge.include?(@length_a == 0 && @length_b == 0 && @length_c == 0)
+      #   raise TriangleError
+      # end
     end
-​
-    class TriangleError < StandardError
-    end
+
+      class TriangleError < StandardError
+      end
       
-    #this is a comment
-    
+
 end
